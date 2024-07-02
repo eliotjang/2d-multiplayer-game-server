@@ -23,7 +23,10 @@ export const packetParser = (data) => {
 
   // clientVersion 검증
   if (clientVersion !== config.client.version) {
-    throw new CustomError(ErrorCodes.CLIENT_VERSION_MISMATCH, '클라이언트 버전이 일치하지 않습니다.');
+    throw new CustomError(
+      ErrorCodes.CLIENT_VERSION_MISMATCH,
+      '클라이언트 버전이 일치하지 않습니다.',
+    );
   }
 
   // 핸들러 ID에 따라 적절한 payload 구조를 디코딩
@@ -38,7 +41,10 @@ export const packetParser = (data) => {
   try {
     payload = PayloadType.decode(packet.payload);
   } catch (error) {
-    throw new CustomError(ErrorCodes.PACKET_STRUCTURE_MISMATCH, '패킷 디코딩 중 오류가 발생했습니다.');
+    throw new CustomError(
+      ErrorCodes.PACKET_STRUCTURE_MISMATCH,
+      '패킷 디코딩 중 오류가 발생했습니다.',
+    );
   }
 
   // 필드 검증 추가 = 중복이므로 코드 주석
