@@ -9,6 +9,5 @@ message CreateGamePayload {
 
 // 게임 참가 핸들러 payload
 message JoinGamePayload {
-  string gameId = 1;         // 게임 ID (UUID)
-  int64 timestamp = 2;       // 게임 참가 시각
+  int64 timestamp = 1;       // 게임 참가 시각
 }

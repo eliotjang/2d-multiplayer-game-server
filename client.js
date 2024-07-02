@@ -69,7 +69,13 @@ client.connect(PORT, HOST, async () => {
   await sendPacket(client, successPacket);
   await delay(500);
 
-  const createGamePacket = createPacket(4, { timestamp: Date.now() }, '1.0.0', 'game', 'CreateGamePayload');
+  const createGamePacket = createPacket(
+    5,
+    { timestamp: Date.now() },
+    '1.0.0',
+    'game',
+    'JoinGamePayload',
+  );
 
   await sendPacket(client, createGamePacket);
 });
