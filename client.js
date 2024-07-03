@@ -23,7 +23,7 @@ const createPacket = (handlerId, payload, clientVersion = '1.0.0', type, name) =
     handlerId,
     userId,
     clientVersion,
-    sequence: 0,
+    sequence,
     payload: payloadBuffer,
   };
 };

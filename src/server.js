@@ -13,7 +13,6 @@ initServer()
       console.log(server.address());
       // create game instance
       addGameSession();
-      console.log(`게임이 생성되었습니다.`);
     });
   })
   .catch((error) => {

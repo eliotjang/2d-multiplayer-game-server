@@ -7,22 +7,26 @@ import { ErrorCodes } from '../error/errorCodes.js';
 export const packetParser = (data) => {
   const protoMessages = getProtoMessages();
 
+  // console.log('protoMessages : ', protoMessages);
+
+  // console.log('Unity data : ', data);
+
   // 공통 패킷 구조를 디코딩
-  const Packet = protoMessages.common.Packet;
+  const Packet = protoMessages.common.CommonPacket;
   let packet;
   try {
     packet = Packet.decode(data);
   } catch (error) {
     throw new CustomError(ErrorCodes.PACKET_DECODE_ERROR, '패킷 디코딩 중 오류가 발생했습니다.');
   }
+  // console.log('packet decode : ', packet);
 
   const handlerId = packet.handlerId;
   const userId = packet.userId;
-  const clientVersion = packet.clientVersion;
-  const sequence = packet.sequence;
+  const version = packet.version;
 
-  // clientVersion 검증
-  if (clientVersion !== config.client.version) {
+  // version 검증
+  if (version !== config.client.version) {
     throw new CustomError(
       ErrorCodes.CLIENT_VERSION_MISMATCH,
       '클라이언트 버전이 일치하지 않습니다.',
@@ -67,5 +71,8 @@ export const packetParser = (data) => {
     );
   }
 
-  return { handlerId, userId, payload, sequence };
+  // console.log('Unity packet Success : ', packet);
+  // console.log('Unity payload Success : ', payload);
+
+  return { handlerId, userId, payload };
 };
