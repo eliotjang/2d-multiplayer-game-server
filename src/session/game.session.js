@@ -5,6 +5,8 @@ import { GAME_SESSION_ID } from '../constants/gameSessionId.js';
 export const addGameSession = () => {
   const session = new Game(GAME_SESSION_ID);
   gameSessions.push(session);
+  session.startGame();
+  console.log(`게임이 생성되었습니다.`);
   return session;
 };
 
