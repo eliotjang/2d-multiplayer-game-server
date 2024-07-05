@@ -1,6 +1,6 @@
 import { createLocationUpdatePacket } from '../../utils/notification/game.notification.js';
 
-const MAX_PLAYERS = 2;
+const MAX_PLAYERS = 30;
 
 class Game {
   constructor(id) {
