@@ -4,8 +4,8 @@ class User {
     this.socket = socket;
     this.playerId = playerId;
     this.latency = latency;
-    this.x = 0;
-    this.y = 0;
+    this.x = 20;
+    this.y = 20;
     this.lastUpdateTime = Date.now();
   }
 

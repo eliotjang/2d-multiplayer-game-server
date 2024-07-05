@@ -6,6 +6,8 @@ export const createResponse = (handlerId, responseCode, data = null, userId) => 
   const protoMessages = getProtoMessages();
   const Response = protoMessages.response.Response;
 
+  console.log('data : ', data);
+
   const responsePayload = {
     handlerId,
     responseCode,
