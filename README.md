@@ -15,9 +15,11 @@
 - [데이터베이스 연동](https://github.com/eliotjang/2d-multiplayer-game-server/pull/6)
 - [latency기반 추측항법 적용](https://github.com/eliotjang/2d-multiplayer-game-server/pull/8)
 
-### 배포 링크
+### 게임 서버 접속
 
-- [게임 서버 링크](http://eliotjang.shop:3000)
+- Device ID : [원하는 아이디]
+- 게임 서버 IP 주소 : 13.209.73.219
+- 게임 서버 포트 번호 : 5555
 
 ### 클라이언트 깃허브 링크
 
