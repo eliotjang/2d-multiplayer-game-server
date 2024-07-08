@@ -1,12 +1,12 @@
 # 2D 멀티플레이어 게임 서버 구현
 
-![](assets\images\mainImage.png)
+![](https://github.com/eliotjang/2d-multiplayer-game-server/blob/main/assets/images/mainImage.png)
 
 프로젝트 제작 기간 : 2024.7.1(월) ~ 2024.7.8.(월)
 
 ### 프로젝트 기획 및 설계
 
-- [프로젝트 기획 및 설계 회의록](https://eliotjang.notion.site/6a8390c23d8846c4bd67b69eab9d7c75?pvs=4)
+- [프로젝트 기획 및 설계 노션](https://eliotjang.notion.site/6a8390c23d8846c4bd67b69eab9d7c75?pvs=4)
 
 ### Pull Request
 
