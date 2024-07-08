@@ -21,6 +21,10 @@
 - 게임 서버 IP 주소 : 13.209.73.219
 - 게임 서버 포트 번호 : 5555
 
+### 유니티 클라이언트 빌드(실행파일) 다운로드 링크
+
+- [유니티 클라이언트 빌드(실행파일) 다운로드](https://drive.google.com/file/d/1uTbWrFuiFmp1arFVfKfnl3lA0WEAkDLf/view?usp=sharing)
+
 ### 클라이언트 깃허브 링크
 
 - [유니티 클라이언트](https://github.com/eliotjang/2d-multiplayer-game-client)
