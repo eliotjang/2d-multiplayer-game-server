@@ -1,10 +1,11 @@
 import { config } from '../../config/config.js';
 import { PACKET_TYPE } from '../../constants/header.js';
 import { getProtoMessages } from '../../init/loadProtos.js';
+import { getGameSession } from '../../session/game.session.js';
 
 const makeNotification = (message, type) => {
   // 패킷 길이 정보를 포함한 버퍼 생성
-  const packetLength = Buffer.alloc(4);
+  const packetLength = Buffer.alloc(config.packet.totalLength);
   packetLength.writeUInt32BE(
     message.length + config.packet.totalLength + config.packet.typeLength,
     0,
@@ -18,13 +19,22 @@ const makeNotification = (message, type) => {
   return Buffer.concat([packetLength, packetType, message]);
 };
 
-export const createLocationUpdatePacket = (users) => {
+export const createLocationUpdatePacket = (users, maxLatency) => {
   const protoMessages = getProtoMessages();
   const Location = protoMessages.gameNotification.LocationUpdate;
 
-  const payload = { users };
+  const payload = { users, maxLatency };
   const message = Location.create(payload);
-  // console.log('users : ', users);
   const locationPacket = Location.encode(message).finish();
   return makeNotification(locationPacket, PACKET_TYPE.LOCATION);
+};
+
+export const createPingPacket = (timestamp) => {
+  const protoMessages = getProtoMessages();
+  const ping = protoMessages.common.Ping;
+
+  const payload = { timestamp };
+  const message = ping.create(payload);
+  const pingPacket = ping.encode(message).finish();
+  return makeNotification(pingPacket, 0);
 };

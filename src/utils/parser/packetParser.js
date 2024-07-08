@@ -7,10 +7,6 @@ import { ErrorCodes } from '../error/errorCodes.js';
 export const packetParser = (data) => {
   const protoMessages = getProtoMessages();
 
-  // console.log('protoMessages : ', protoMessages);
-
-  // console.log('Unity data : ', data);
-
   // 공통 패킷 구조를 디코딩
   const Packet = protoMessages.common.CommonPacket;
   let packet;
@@ -19,8 +15,6 @@ export const packetParser = (data) => {
   } catch (error) {
     throw new CustomError(ErrorCodes.PACKET_DECODE_ERROR, '패킷 디코딩 중 오류가 발생했습니다.');
   }
-  // console.log('packet decode : ', packet);
-
   const handlerId = packet.handlerId;
   const userId = packet.userId;
   const version = packet.version;
@@ -51,15 +45,6 @@ export const packetParser = (data) => {
     );
   }
 
-  // 필드 검증 추가 = 중복이므로 코드 주석
-  // const errorMessage = PayloadType.verify(payload);
-  // if (errorMessage) {
-  //   throw new CustomError(
-  //     ErrorCodes.INVALID_PACKET,
-  //     `유효하지 않은 패킷입니다.: ${errorMessage}`,
-  //   );
-  // }
-
   // 필드가 비어 있거나, 필수 필드가 누락된 경우 처리
   const expectedFields = Object.keys(PayloadType.fields);
   const actualFields = Object.keys(payload);
@@ -70,9 +55,5 @@ export const packetParser = (data) => {
       `필수 필드가 누락되었습니다: ${missingFields.join(', ')}`,
     );
   }
-
-  // console.log('Unity packet Success : ', packet);
-  // console.log('Unity payload Success : ', payload);
-
   return { handlerId, userId, payload };
 };

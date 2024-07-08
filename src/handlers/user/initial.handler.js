@@ -38,8 +38,6 @@ const initialHandler = async ({ socket, userId, payload }) => {
       gameInstance.addUser(user);
     }
 
-    // console.log('get All Users Ids : ', gameSession.getAllUserIds());
-
     const x = userDB.lastPositionX;
     const y = userDB.lastPositionY;
     const playerId = userDB.playerId;
@@ -53,8 +51,6 @@ const initialHandler = async ({ socket, userId, payload }) => {
 
     // 소켓을 통해 클라이언트에게 응답 메시지 전송
     socket.write(initialResponse);
-
-    // setTimeout(() => {}, 500);
   } catch (error) {
     handleError(socket, error);
   }

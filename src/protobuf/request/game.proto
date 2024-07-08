@@ -6,4 +6,7 @@ package game;
 message LocationUpdatePayload {
   float x = 1;
   float y = 2;
+  float inputX = 3;
+  float inputY = 4;
+  float speed = 5;
 }
