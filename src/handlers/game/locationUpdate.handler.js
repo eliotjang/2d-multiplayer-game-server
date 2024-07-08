@@ -17,6 +17,8 @@ const locationUpdateHandler = async ({ socket, userId, payload }) => {
     user.updatePosition(x, y, inputX, inputY, speed);
     const packet = gameInstance.getOthersLocation(userId);
 
+    // console.log(gameInstance.getAllUserIds());
+
     socket.write(packet);
   } catch (error) {
     handleError(socket, error);

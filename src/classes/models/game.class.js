@@ -30,6 +30,7 @@ class Game {
 
   removeUser(userId) {
     this.users = this.users.filter((user) => user.id !== userId);
+    console.log(this.getAllUserIds());
     this.intervalManager.removePlayer(userId);
   }
 
@@ -49,10 +50,11 @@ class Game {
   getOthersLocation(userId) {
     let locationData = [];
     const maxLatency = this.getMaxLatency();
-
     this.users.forEach((user) => {
       if (user.id !== userId) {
         const { x, y } = user.calculatePosition(maxLatency);
+        // const x = user.x;
+        // const y = user.y;
         locationData.push({ id: user.id, playerId: user.playerId, x, y });
       }
     });
